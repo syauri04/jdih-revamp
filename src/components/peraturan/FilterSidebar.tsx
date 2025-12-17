@@ -2,7 +2,7 @@
 
 import { LiaUndoAltSolid } from "react-icons/lia";
 import { FiChevronDown } from "react-icons/fi";
-import type { PeraturanFilters } from "@/app/peraturan/page";
+import type { PeraturanFilters } from "@/types/peraturan";
 import { useState } from "react";
 
 interface Props {

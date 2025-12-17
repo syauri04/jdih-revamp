@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FiX } from "react-icons/fi";
 import { forwardRef } from "react";
-import type { PeraturanItem, PeraturanFilters } from "@/app/peraturan/page";
+import type { PeraturanItem, PeraturanFilters } from "@/types/peraturan";
 
 interface Props {
   data: PeraturanItem[];
