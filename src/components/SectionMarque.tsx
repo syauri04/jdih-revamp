@@ -4,26 +4,26 @@ import Link from "next/link";
 import Image from "next/image";
 
 const donors = [
-  { src: "/assets/logo-m-1.png", alt: "BPDLH", slug: "bpdlh" },
+  { src: "/assets/logo-lk-1.png", alt: "BPDLH", slug: "bpdlh" },
   {
-    src: "/assets/logo-m-2.png",
+    src: "/assets/logo-lk-2.png",
     alt: "Ministry of Forestry",
     slug: "ministry-of-forestry",
   },
-  { src: "/assets/logo-m-3.png", alt: "WCS", slug: "wcs" },
+  { src: "/assets/logo-lk-3.png", alt: "WCS", slug: "wcs" },
   {
-    src: "/assets/logo-m-4.png",
+    src: "/assets/logo-lk-4.png",
     alt: "Ministry of Forestry",
     slug: "ministry-of-forestry-2",
   },
-  { src: "/assets/logo-m-5.png", alt: "WCS", slug: "wcs-2" },
-  { src: "/assets/logo-m-6.png", alt: "BPDLH", slug: "bpdlh-3" },
+  { src: "/assets/logo-lk-5.png", alt: "WCS", slug: "wcs-2" },
   {
-    src: "/assets/logo-m-7.png",
+    src: "/assets/logo-lk-6.png",
     alt: "Ministry of Forestry",
     slug: "ministry-of-forestry-3",
   },
-  { src: "/assets/logo-m-8.png", alt: "WCS", slug: "wcs-3" },
+  { src: "/assets/logo-lk-7.png", alt: "WCS", slug: "wcs-3" },
+  { src: "/assets/logo-lk-8.png", alt: "WCS", slug: "wcs-3" },
 ];
 
 export default function SectionMarque() {
@@ -38,8 +38,8 @@ export default function SectionMarque() {
         <div className="relative w-full overflow-hidden">
           <div className="flex animate-marquee hover:[animation-play-state:paused] whitespace-nowrap gap-4 md:gap-8">
             {donors.map((donor, i) => (
-              <Link key={i} href={`/donor/${donor.slug}`}>
-                <div className="relative w-auto h-16 md:h-25 aspect-3/1 cursor-pointer grayscale hover:grayscale-0 transition duration-300">
+              <Link key={i} href={`/link/${donor.slug}`}>
+                <div className="relative w-auto h-20 md:h-26 aspect-3/1 cursor-pointer grayscale hover:grayscale-0 transition duration-300">
                   <Image
                     src={donor.src}
                     alt={donor.alt}

@@ -41,8 +41,8 @@ export default function SectionTemtaik() {
     },
     {
       id: 7,
-      title: "Penelitian dan Pengembangan",
-      tematik: "Penelitian-dan-Pengembangan",
+      title: "Perakitan dan Modernisasi Pertanian",
+      tematik: "Perakitan-dan-Modernisasi-Pertanian",
       icon: "/assets/tematik-7.png",
     },
     {

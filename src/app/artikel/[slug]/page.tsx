@@ -8,7 +8,7 @@ export default function ArtikelDetail() {
   return (
     <div className="">
       <BreadcumbPage
-        title="Monografi"
+        title="Artikel"
         subtitle="Analisis dan Evaluasi Hukum Dalam Rangka Peningkatan Daya Saing Tenaga Kerja"
       />
 

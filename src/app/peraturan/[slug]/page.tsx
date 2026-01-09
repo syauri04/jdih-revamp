@@ -1,4 +1,6 @@
 import BreadcumbPage from "@/components/BreadcumbPage";
+import CardAbstraks from "@/components/CardAbstraks";
+import CardAudio from "@/components/CardAudio";
 import Link from "next/link";
 import { AiOutlineDownload } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
@@ -47,7 +49,12 @@ export default function PeraturanDetail() {
                 Ketahanan Pangan dan Pertanian Tahun Anggaran 2025
               </h1>
 
-              <div className="mt-20">
+              <CardAbstraks
+                summary="Jaringan Dokumentasi dan Informasi Hukum Kementerian Pertanian merupakan suatu wadah pendayagunaan bersama atas dokumen hukum di bidang pertanian dan dokumen hukum lainnya secara tertib, terpadu, dan berkesinambungan, serta merupakan sarana pemberian layanan informasi hukum secara lengkap, akurat, mudah, dan cepat."
+                fileUrl="/assets/PP_11-20221.pdf"
+              />
+
+              <div className="mt-16">
                 <h2
                   className="font-bold
               text-[32px]
@@ -55,7 +62,7 @@ export default function PeraturanDetail() {
               tracking-[-0.02em]
               text-[#097969]"
                 >
-                  Detil Peraturan
+                  Detail Peraturan
                 </h2>
 
                 <div className="grid grid-cols-2 gap-10 lg:gap-19 mt-10">
@@ -440,126 +447,180 @@ export default function PeraturanDetail() {
                   </div>
                 </div>
               </div>
+
+              <CardAudio audioSrc="/assets/contoh-audio.mp3" />
             </div>
 
             {/* ================= RIGHT (30%) ================= */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-10">
               {/* ========== CARD 1 ========= */}
               <div
                 className="
-            bg-[rgba(117,116,116,0.05)]
-            rounded-[20px]
-            p-6
-          "
+                  bg-[rgba(117,116,116,0.05)]
+                  rounded-[20px]
+                  p-6
+                "
               >
                 <h3
                   className="
-              font-bold
-              text-[32px]
-              leading-10
-              tracking-[-0.02em]
-              text-[#097969]
-              mb-6
-            "
+                    font-bold
+                    text-[32px]
+                    leading-10
+                    tracking-[-0.02em]
+                    text-[#097969]
+                    mb-6
+                  "
                 >
-                  Unduh Dokumen
+                  Lampiran
                 </h3>
 
                 <div className="flex flex-col lg:flex-row gap-4">
                   {/* Button PDF */}
                   <a
-                    href="/dummy-file.pdf"
+                    href="/assets/PP_11-20221.pdf"
                     download
                     className="
-                inline-flex
-                items-center
-                gap-2
-                px-6
-                py-3
-                bg-[#097969]
-                rounded-[22px]
-                font-inter
-                text-base
-                text-white
-                hover:opacity-90
-                transition
-              "
+                      inline-flex
+                      items-center
+                      gap-2
+                      px-6
+                      py-3
+                      bg-[#097969]
+                      rounded-[22px]
+                      font-inter
+                      text-base
+                      text-white
+                      hover:opacity-90
+                      transition
+                    "
                   >
                     <AiOutlineDownload size={24} />
                     PDF
                   </a>
 
                   {/* Button Abstrak */}
-                  <button
+                  <Link
+                    href="/assets/PP_11-20221.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="
-                inline-flex
-                items-center
-                gap-2
-                px-6
-                py-3
-                bg-transparent
-                border
-                border-[#097969]
-                rounded-[22px]
-                font-inter
-                text-base
-                text-[#097969]
-                hover:bg-[#097969]/10
-                transition
-              "
+                      inline-flex
+                      items-center
+                      gap-2
+                      px-6
+                      py-3
+                      bg-transparent
+                      border
+                      border-[#097969]
+                      rounded-[22px]
+                      font-inter
+                      text-base
+                      text-[#097969]
+                      hover:bg-[#097969]/10
+                      transition
+                      cursor-pointer
+                    "
                   >
                     <IoEyeOutline size={24} />
-                    Abstrak
-                  </button>
+                    PDF
+                  </Link>
                 </div>
               </div>
 
-              {/* ========== CARD 2 (contoh) ========= */}
+              {/* ========== CARD 2 =========  */}
               <div
                 className="
-            bg-[rgba(117,116,116,0.05)]
-            rounded-[20px]
-            p-6
-          "
+                  bg-[rgba(117,116,116,0.05)]
+                  rounded-[20px]
+                  p-6
+                "
               >
                 <h3
                   className="
-              font-bold
-              text-[32px]
-              leading-10
-              tracking-[-0.02em]
-              text-[#097969]
-              mb-6
-            "
-                >
-                  Lampiran Peraturan
-                </h3>
-                <p className="text-sm text-black/80 font-inter  mb-2">N/A</p>
-              </div>
-
-              {/* ========== CARD 3 (contoh) ========= */}
-              <div
-                className="
-            bg-[rgba(117,116,116,0.05)]
-            rounded-[20px]
-            p-6
-          "
-              >
-                <h3
-                  className="
-              font-bold
-              text-[32px]
-              leading-10
-              tracking-[-0.02em]
-              text-[#097969]
-              mb-6
-            "
+                    font-bold
+                    text-[32px]
+                    leading-10
+                    tracking-[-0.02em]
+                    text-[#097969]
+                    mb-6
+                  "
                 >
                   Status Peraturan
                 </h3>
                 <p className="text-sm text-black/80 font-inter font-bold mb-2">
                   Mencabut
                 </p>
+                <p className="text-sm text-[#097969] underline font-inter ">
+                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
+                </p>
+              </div>
+
+              <div
+                className="
+                  bg-[rgba(117,116,116,0.05)]
+                  rounded-[20px]
+                  p-6
+                "
+              >
+                <h3
+                  className="
+                    font-bold
+                    text-[32px]
+                    leading-10
+                    tracking-[-0.02em]
+                    text-[#097969]
+                    mb-6
+                  "
+                >
+                  Peraturan Terkait
+                </h3>
+                <p className="text-sm text-[#097969] underline font-inter ">
+                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
+                </p>
+              </div>
+
+              <div
+                className="
+                  bg-[rgba(117,116,116,0.05)]
+                  rounded-[20px]
+                  p-6
+                "
+              >
+                <h3
+                  className="
+                    font-bold
+                    text-[32px]
+                    leading-10
+                    tracking-[-0.02em]
+                    text-[#097969]
+                    mb-6
+                  "
+                >
+                  Peraturan Pelaksanaan
+                </h3>
+                <p className="text-sm text-[#097969] underline font-inter ">
+                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
+                </p>
+              </div>
+              <div
+                className="
+                  bg-[rgba(117,116,116,0.05)]
+                  rounded-[20px]
+                  p-6
+                "
+              >
+                <h3
+                  className="
+                    font-bold
+                    text-[32px]
+                    leading-10
+                    tracking-[-0.02em]
+                    text-[#097969]
+                    mb-6
+                  "
+                >
+                  Dokumen Terkait Peraturan
+                </h3>
                 <p className="text-sm text-[#097969] underline font-inter ">
                   Peraturan Menteri Pertanian Nomor 03 Tahun 2025
                 </p>

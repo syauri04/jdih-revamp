@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 export default function SectionBerita() {
   const beritaList = [
@@ -36,16 +39,64 @@ export default function SectionBerita() {
       slug: "peraturan-menteri-pertanian-nomor-09-tahun-2025",
     },
   ];
+
+  // Variants untuk judul & subtitle
+  const textVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay,
+      },
+    }),
+  };
+
+  // Variants untuk card (bergantian)
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: i * 0.2, // delay per card
+      },
+    }),
+  };
+
   return (
     <section className="py-10 md:pt-0 md:pb-20">
       <div className="bg-[#9DC209] rounded-[40px] mx-4 lg:mx-8">
         <div className="max-w-7xl mx-auto py-16 px-6 xl:px-0">
-          <h2 className="text-[32px] leading-10 tracking-[-0.02em] text-white font-bold mb-4 md:mb-8">
+          {/* Animated Title */}
+          <motion.h2
+            className="text-[32px] leading-10 tracking-[-0.02em] text-white font-bold mb-4 md:mb-8"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.5 }}
+            custom={0} // delay pertama
+            variants={textVariants}
+          >
             Berita
-          </h2>
-          <p className="text-2xl text-white leading-8.5 tracking-[-0.02em] text-center font-bold mb-14">
+          </motion.h2>
+
+          {/* Animated Subtitle */}
+          <motion.p
+            className="text-2xl text-white leading-8.5 tracking-[-0.02em] text-center font-bold mb-14"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.5 }}
+            custom={0.2} // delay setelah judul
+            variants={textVariants}
+          >
             Berita Terbaru JDIH Kementan
-          </p>
+          </motion.p>
+
+          {/* Animated Cards */}
           <div
             className="
               flex gap-4 overflow-x-auto pb-4
@@ -55,19 +106,21 @@ export default function SectionBerita() {
               scrollbar-hide
             "
           >
-            {/* CARD */}
-            {beritaList.map((item) => (
-              <Link
+            {beritaList.map((item, index) => (
+              <motion.div
                 key={item.id}
-                href={`/berita/${item.slug}`}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.4 }}
+                custom={index} // delay per card
+                variants={cardVariants}
                 className="
-                snap-start
+                  snap-start
                   p-3 rounded-[20px] bg-white
                   min-w-[280px] sm:min-w-[320px]
                   md:min-w-0
                 "
               >
-                {/* IMAGE */}
                 <div className="relative w-full aspect-250/160 overflow-hidden rounded-[10px]">
                   <Image
                     src={item.image}
@@ -77,36 +130,35 @@ export default function SectionBerita() {
                   />
                 </div>
 
-                {/* TITLE */}
                 <h3 className="mt-4 text-base leading-5 text-black font-bold line-clamp-3">
                   {item.title}
                 </h3>
 
-                {/* DATE */}
                 <span className="mt-2 block font-inter text-[14px] text-black opacity-[0.4]">
                   {item.date}
                 </span>
-              </Link>
+              </motion.div>
             ))}
           </div>
+
           <div className="flex justify-center mt-12">
             <Link
               href="/berita"
               className="
-            border-2 border-white
-            bg-transparent
-            rounded-[30px]
-            px-12
-            py-4
-            text-[20px]
-            leading-5
-            text-white
-            font-inter
-            font-bold
-            transition
-            hover:bg-white
-            hover:text-[#9DC209]
-            "
+                border-2 border-white
+                bg-transparent
+                rounded-[30px]
+                px-12
+                py-4
+                text-[20px]
+                leading-5
+                text-white
+                font-inter
+                font-bold
+                transition
+                hover:bg-white
+                hover:text-[#9DC209]
+              "
             >
               Lihat Berita Lainnya
             </Link>

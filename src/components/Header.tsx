@@ -16,6 +16,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openTentang, setOpenTentang] = useState(false);
   const [openDokumen, setOpenDokumen] = useState(false);
+  const [openDokumenPuu, setOpenDokumenPuu] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -37,6 +38,7 @@ export default function Header() {
     setMobileOpen(false);
     setOpenTentang(false);
     setOpenDokumen(false);
+    setOpenDokumenPuu(false);
   };
 
   return (
@@ -45,11 +47,7 @@ export default function Header() {
       <header
         className={`top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out px-6 xl:px-0
           ${
-            scrolled
-              ? "fixed bg-transparent"
-              : isHome
-              ? "fixed bg-transparent"
-              : "relative bg-[#665A00]/5"
+            scrolled ? "fixed " : isHome ? "fixed  " : "relative bg-[#665A00]/5"
           }
         `}
       >
@@ -58,6 +56,8 @@ export default function Header() {
             ${
               scrolled
                 ? "max-w-295 bg-white/90 backdrop-blur-md px-8 mt-2 rounded-[40px]"
+                : isHome
+                ? "max-w-7xl md:bg-white/60 md:backdrop-blur-[4px] md:px-8 md:mt-2 md:rounded-[40px]"
                 : "max-w-7xl"
             }
           `}
@@ -154,6 +154,51 @@ export default function Header() {
               </div>
             </div>
 
+            {/* Dokumen Pembentukan PUU */}
+            <div className="group relative">
+              <button
+                type="button"
+                className={`flex items-center gap-1 transition-colors
+                  ${
+                    isActive("/dokumen-puu/naskah-akademik") ||
+                    isActive("/dokumen-puu/rancangan-puu") ||
+                    isActive("/dokumen-puu/program-penyusunan-puu") ||
+                    isActive("/dokumen-puu/kajian-penelitian-hukum") ||
+                    isActive("/dokumen-puu/risalah-pembahasan") ||
+                    isActive("/dokumen-puu/analisis-evaluasi")
+                      ? activeClass
+                      : "text-black"
+                  }
+                `}
+              >
+                Dokumen Pembentukan PUU <FiChevronDown className="text-sm" />
+              </button>
+              <div className="absolute left-0 mt-2 min-w-48 bg-white shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
+                {[
+                  [
+                    "Program Penyusunan PUU",
+                    "/dokumen-puu/program-penyusunan-puu",
+                  ],
+                  ["Rancangan PUU", "/dokumen-puu/rancangan-puu"],
+                  ["Naskah Akademik", "/dokumen-puu/naskah-akademik"],
+                  [
+                    "Kajian/Penelitian Hukum",
+                    "/dokumen-puu/kajian-penelitian-hukum",
+                  ],
+                  ["Risalah Pembahasan", "/dokumen-puu/risalah-pembahasan"],
+                  ["Analisis dan Evaluasi", "/dokumen-puu/analisis-evaluasi"],
+                ].map(([label, link]) => (
+                  <Link
+                    key={label}
+                    href={link}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Link
               href="/kontak"
               className={`${
@@ -169,20 +214,22 @@ export default function Header() {
             {/* Search (desktop only) */}
             <div className="relative hidden lg:flex items-center h-10">
               <FiSearch
-                className="text-black cursor-pointer text-xl relative z-10"
+                className={`text-black cursor-pointer text-xl relative z-10 transition-transform duration-300
+                  ${searchOpen ? "-translate-x-2" : "translate-x-0"}
+                `}
                 onClick={() => setSearchOpen(!searchOpen)}
               />
 
               <input
                 type="text"
                 placeholder="Cari..."
-                className={`absolute right-0 top-1/2 -translate-y-1/2 h-10 px-3 transition-all
-      ${
-        searchOpen
-          ? "w-48 opacity-100 bg-white border border-gray-300 pointer-events-auto"
-          : "w-0 opacity-0 pointer-events-none"
-      }
-    `}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 h-10 px-4 transition-all
+                ${
+                  searchOpen
+                    ? "w-48 opacity-100 bg-white border border-gray-300 pointer-events-auto rounded-[30px]"
+                    : "w-0 opacity-0 pointer-events-none"
+                }
+              `}
               />
             </div>
 
@@ -272,6 +319,52 @@ export default function Header() {
               </Link>
               <Link href="/artikel" onClick={closeMobileMenu}>
                 Artikel
+              </Link>
+            </div>
+          )}
+
+          {/* Dokumen Pembentukan PUU */}
+          <button
+            className="flex items-center justify-between"
+            onClick={() => setOpenDokumenPuu(!openDokumenPuu)}
+          >
+            Dokumen Hukum
+            <FiChevronDown
+              className={`transition ${openDokumenPuu ? "rotate-180" : ""}`}
+            />
+          </button>
+
+          {openDokumenPuu && (
+            <div className="pl-4 flex flex-col gap-2 text-2xl text-white/80">
+              <Link
+                href="/dokumen-puu/program-penyusunan-puu"
+                onClick={closeMobileMenu}
+              >
+                Program Penyusunan PUU
+              </Link>
+              <Link
+                href="/dokumen-puu/naskah-akademik"
+                onClick={closeMobileMenu}
+              >
+                Naskah Akademik
+              </Link>
+              <Link
+                href="/dokumen-puu/kajian-penelitian-hukum"
+                onClick={closeMobileMenu}
+              >
+                Kajian/Penelitian Hukum
+              </Link>
+              <Link
+                href="/dokumen-puu/risalah-pembahasan"
+                onClick={closeMobileMenu}
+              >
+                Risalah Pembahasan
+              </Link>
+              <Link
+                href="/dokumen-puu/analisa-evaluasi"
+                onClick={closeMobileMenu}
+              >
+                Analisa dan Evaluasi
               </Link>
             </div>
           )}
