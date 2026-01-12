@@ -1,7 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export default function SectionTemtaik() {
+  const titleVariant: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const containerVariant: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariant: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 32,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   const items = [
     {
       id: 1,
@@ -68,46 +112,59 @@ export default function SectionTemtaik() {
   return (
     <section className="py-10 md:pt-0 md:pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 xl:px-0">
-        <h2 className="text-[32px] leading-10 tracking-[-0.02em] text-[#097969] font-bold mb-10 md:mb-16">
+        {/* H2 ANIMATION */}
+        <motion.h2
+          variants={titleVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-[32px] leading-10 tracking-[-0.02em] text-[#097969] font-bold mb-10 md:mb-16"
+        >
           Tematik Peraturan
-        </h2>
+        </motion.h2>
 
         <div className="max-w-6xl mx-auto">
-          <div
+          {/* LIST CONTAINER */}
+          <motion.div
+            variants={containerVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             className="
-              flex gap-6 overflow-x-auto pb-4
-              md:grid md:grid-cols-5 md:gap-x-6 md:gap-y-12
-              md:overflow-visible
-              scrollbar-hide
-            "
+          flex gap-6 overflow-x-auto pb-4
+          md:grid md:grid-cols-5 md:gap-x-6 md:gap-y-12
+          md:overflow-visible
+          scrollbar-hide
+        "
           >
             {items.map((item) => (
-              <Link
-                key={item.id}
-                href={`/peraturan?tematik=${item.tematik}`}
-                className="
-                  flex flex-col items-center shrink-0
-                  min-w-[100px]
-                  md:min-w-0
-                "
-              >
-                {/* ICON */}
-                <div className="relative w-12 md:w-18 aspect-square">
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+              <motion.div key={item.id} variants={itemVariant}>
+                <Link
+                  href={`/peraturan?tematik=${item.tematik}`}
+                  className="
+                flex flex-col items-center shrink-0
+                min-w-[100px]
+                md:min-w-0
+              "
+                >
+                  {/* ICON */}
+                  <div className="relative w-12 md:w-18 aspect-square">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
 
-                {/* TITLE */}
-                <h3 className="mt-3 text-sm md:text-base leading-5 text-center text-[#097969]">
-                  {item.title}
-                </h3>
-              </Link>
+                  {/* TITLE */}
+                  <h3 className="mt-3 text-sm md:text-base leading-5 text-center text-[#097969]">
+                    {item.title}
+                  </h3>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

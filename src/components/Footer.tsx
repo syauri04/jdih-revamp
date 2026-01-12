@@ -8,11 +8,24 @@ export default function Footer() {
       <div className="relative rounded-[20px] overflow-hidden">
         <div
           className="
+            absolute inset-0
+            bg-[url('/assets/ornament-footer.png')]
+            bg-repeat
+            bg-center
+            opacity-[0.05]
+            pointer-events-none
+            z-10
+          "
+        />
+
+        <div
+          className="
       absolute inset-0
       bg-linear-to-t
       from-[#2D5F9F]
       to-[#757474]
       opacity-[0.05]
+      z-0
     "
         />
         <div className="max-w-4xl xl:max-w-7xl mx-auto py-14 px-6 lg:px-0">
