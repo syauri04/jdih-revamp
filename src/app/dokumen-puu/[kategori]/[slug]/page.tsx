@@ -37,7 +37,7 @@ export default async function DokumenDetail({ params }: PageProps) {
             {/* ================= LEFT ================= */}
             <div className="flex flex-col gap-4">
               <Link
-                href={`/dokumen/${kategori}`}
+                href={`/dokumen-puu/${kategori}`}
                 className="text-sm text-[#097969] underline mb-3"
               >
                 Kembali
