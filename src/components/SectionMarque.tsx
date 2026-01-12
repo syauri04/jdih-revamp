@@ -4,26 +4,27 @@ import Link from "next/link";
 import Image from "next/image";
 
 const donors = [
-  { src: "/assets/logo-lk-1.png", alt: "BPDLH", slug: "bpdlh" },
+  { src: "/assets/Itjen.png", alt: "Itjen", slug: "Itjen" },
   {
-    src: "/assets/logo-lk-2.png",
-    alt: "Ministry of Forestry",
-    slug: "ministry-of-forestry",
+    src: "/assets/direktorat_jenderal_lahan_irigasi.png",
+    alt: "Direktorat Jenderal Lahan Irigasi",
+    slug: "direktorat-jenderal-lahan-irigasi",
   },
-  { src: "/assets/logo-lk-3.png", alt: "WCS", slug: "wcs" },
+  { src: "/assets/PKH.png", alt: "PKH", slug: "pkh" },
   {
-    src: "/assets/logo-lk-4.png",
-    alt: "Ministry of Forestry",
-    slug: "ministry-of-forestry-2",
+    src: "/assets/Kementerian_Pertanian.png",
+    alt: "Kementerian Pertanian",
+    slug: "kementerian_pertanian",
   },
-  { src: "/assets/logo-lk-5.png", alt: "WCS", slug: "wcs-2" },
+  { src: "/assets/BPPSDMP.png", alt: "BPPSDMP", slug: "bppsdmp" },
   {
-    src: "/assets/logo-lk-6.png",
-    alt: "Ministry of Forestry",
-    slug: "ministry-of-forestry-3",
+    src: "/assets/agro_modern.png",
+    alt: "Agro Modern",
+    slug: "agro-modern",
   },
-  { src: "/assets/logo-lk-7.png", alt: "WCS", slug: "wcs-3" },
-  { src: "/assets/logo-lk-8.png", alt: "WCS", slug: "wcs-3" },
+  { src: "/assets/Perkebunan.png", alt: "Perkebunan", slug: "perkebunan" },
+  { src: "/assets/BRMP_pementerian_pertanian.png", alt: "BRMP", slug: "brmp" },
+  { src: "/assets/PSP_Satu_Data.png", alt: "PSP", slug: "psp-satu-data" },
 ];
 
 export default function SectionMarque() {
@@ -36,10 +37,10 @@ export default function SectionMarque() {
       </div>
       <div className="container mx-auto">
         <div className="relative w-full overflow-hidden">
-          <div className="flex animate-marquee hover:[animation-play-state:paused] whitespace-nowrap gap-4 md:gap-8">
+          <div className="flex animate-marquee hover:[animation-play-state:paused] whitespace-nowrap gap-4 md:gap-x-12">
             {donors.map((donor, i) => (
               <Link key={i} href={`/link/${donor.slug}`}>
-                <div className="relative w-auto h-20 md:h-26 aspect-3/1 cursor-pointer grayscale hover:grayscale-0 transition duration-300">
+                <div className="relative w-auto h-30 aspect-2/1 cursor-pointer grayscale hover:grayscale-0 transition duration-300">
                   <Image
                     src={donor.src}
                     alt={donor.alt}

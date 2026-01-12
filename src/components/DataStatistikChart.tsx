@@ -49,6 +49,71 @@ export default function DataStatistikChart({
       },
     },
 
+    "jumlah-puu-jenis": {
+      series: [
+        { name: "Jumlah Dokumen", data: [190, 420, 300, 80, 200, 400, 520] },
+      ],
+      options: {
+        chart: { type: "bar", stacked: true, toolbar: { show: false } },
+        plotOptions: {
+          bar: {
+            columnWidth: "45%",
+            borderRadius: 20,
+            borderRadiusApplication: "end",
+            borderRadiusWhenStacked: "last",
+          },
+        },
+        colors: ["#9DC209"],
+        dataLabels: { enabled: false },
+        xaxis: {
+          categories: [
+            "Pedoman",
+            "Peraturan\nPemerintah",
+            "Instruksi\nPresiden",
+            "Peraturan\nMenteri\nPertanian",
+            "Peraturan\nMenteri",
+            "Undang-Undang",
+            "Peraturan Presiden",
+          ],
+        },
+        legend: { show: false },
+      },
+    },
+
+    "jumlah-koleksi-puu": {
+      series: [
+        {
+          name: "Peraturan Perundang-undangan",
+          data: [1200, 860, 430, 320, 1200, 860, 430],
+        },
+      ],
+      options: {
+        chart: { type: "bar", stacked: true, toolbar: { show: false } },
+        plotOptions: {
+          bar: {
+            columnWidth: "45%",
+            borderRadius: 20,
+            borderRadiusApplication: "end",
+            borderRadiusWhenStacked: "last",
+          },
+        },
+        colors: ["#043927", "#9DC209"],
+        dataLabels: { enabled: false },
+        xaxis: {
+          categories: [
+            "Pedoman",
+            "Peraturan\nPemerintah",
+            "Instruksi\nPresiden",
+            "Peraturan\nMenteri\nPertanian",
+            "Peraturan\nMenteri",
+            "Undang-Undang",
+            "Peraturan Presiden",
+          ],
+        },
+        legend: { show: false },
+      },
+    },
+
     "jumlah-dokumen": {
       series: [{ name: "Jumlah Dokumen", data: [1200, 860, 430, 320] }],
       options: {
@@ -65,7 +130,7 @@ export default function DataStatistikChart({
       options: {
         chart: { type: "bar", toolbar: { show: false } },
         plotOptions: { bar: { columnWidth: "45%", borderRadius: 16 } },
-        colors: ["#9DC209"],
+        colors: ["#043927"],
         xaxis: { categories: ["PUU", "Putusan", "Monografi", "Artikel"] },
         legend: { show: false },
       },

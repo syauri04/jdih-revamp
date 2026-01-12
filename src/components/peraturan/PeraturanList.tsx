@@ -166,7 +166,8 @@ const PeraturanList = forwardRef<HTMLDivElement, Props>(
                 </span>
 
                 <span className="font-inter text-base text-[#097969]">
-                  {item.nomor}
+                  {item.jenis?.toUpperCase()} Nomor {item.nomor} Tahun{" "}
+                  {item.tahun}
                 </span>
               </div>
 

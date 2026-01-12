@@ -72,7 +72,7 @@ export default function Header() {
               className="h-10 w-auto"
             />
             <Image
-              src="/assets/logo-header-svg.svg"
+              src="/assets/logo-green.svg"
               alt="Logo 2"
               width={40}
               height={40}

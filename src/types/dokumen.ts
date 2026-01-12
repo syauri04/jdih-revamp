@@ -5,15 +5,13 @@ export interface DokumenItem {
   judul: string;
   tematik: string;
   penerbit: string;
-  status: "Berlaku" | "Tidak Berlaku";
+  instansi: string;
   tahun: number;
   slug: string;
 }
 
 export interface DokumenFilters {
   jenis: string[];
-  status: string[];
-  tematik: string[];
   nomor: string;
   judul: string;
   tahun: string;

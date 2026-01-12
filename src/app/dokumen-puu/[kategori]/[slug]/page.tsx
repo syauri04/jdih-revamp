@@ -54,13 +54,11 @@ export default async function DokumenDetail({ params }: PageProps) {
                       {KATEGORI_LABEL[data.kategori] ?? labelize(data.kategori)}
                     </span>
                   </Meta>
-                  <Meta label="Nomor Panggil">{data.nomor}</Meta>
                   <Meta label="Judul">{data.judul}</Meta>
-                  <Meta label="Status">{data.status}</Meta>
+                  <Meta label="Instansi yang Membuat">{data.instansi}</Meta>
                 </div>
 
                 <div className="flex flex-col gap-8">
-                  <Meta label="Penerbit">{data.penerbit}</Meta>
                   <Meta label="Tahun Terbit">{data.tahun}</Meta>
                   <Meta label="Bidang Hukum">{labelize(data.tematik)}</Meta>
                 </div>
@@ -88,103 +86,6 @@ export default async function DokumenDetail({ params }: PageProps) {
                     Abstrak
                   </button>
                 </div>
-              </div>
-              <div
-                className="
-                  bg-[rgba(117,116,116,0.05)]
-                  rounded-[20px]
-                  p-6
-                "
-              >
-                <h3
-                  className="
-                    font-bold
-                    text-[32px]
-                    leading-10
-                    tracking-[-0.02em]
-                    text-[#097969]
-                    mb-6
-                  "
-                >
-                  Status Peraturan
-                </h3>
-                <p className="text-sm text-black/80 font-inter font-bold mb-2">
-                  Mencabut
-                </p>
-                <p className="text-sm text-[#097969] underline font-inter ">
-                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
-                </p>
-              </div>
-
-              <div
-                className="
-                  bg-[rgba(117,116,116,0.05)]
-                  rounded-[20px]
-                  p-6
-                "
-              >
-                <h3
-                  className="
-                    font-bold
-                    text-[32px]
-                    leading-10
-                    tracking-[-0.02em]
-                    text-[#097969]
-                    mb-6
-                  "
-                >
-                  Peraturan Terkait
-                </h3>
-                <p className="text-sm text-[#097969] underline font-inter ">
-                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
-                </p>
-              </div>
-
-              <div
-                className="
-                  bg-[rgba(117,116,116,0.05)]
-                  rounded-[20px]
-                  p-6
-                "
-              >
-                <h3
-                  className="
-                    font-bold
-                    text-[32px]
-                    leading-10
-                    tracking-[-0.02em]
-                    text-[#097969]
-                    mb-6
-                  "
-                >
-                  Peraturan Pelaksanaan
-                </h3>
-                <p className="text-sm text-[#097969] underline font-inter ">
-                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
-                </p>
-              </div>
-              <div
-                className="
-                  bg-[rgba(117,116,116,0.05)]
-                  rounded-[20px]
-                  p-6
-                "
-              >
-                <h3
-                  className="
-                    font-bold
-                    text-[32px]
-                    leading-10
-                    tracking-[-0.02em]
-                    text-[#097969]
-                    mb-6
-                  "
-                >
-                  Dokumen Terkait Peraturan
-                </h3>
-                <p className="text-sm text-[#097969] underline font-inter ">
-                  Peraturan Menteri Pertanian Nomor 03 Tahun 2025
-                </p>
               </div>
             </div>
           </div>

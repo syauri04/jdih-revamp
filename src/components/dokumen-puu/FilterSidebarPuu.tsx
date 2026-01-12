@@ -42,7 +42,7 @@ export default function FilterSidebarPuu({
     }
   };
 
-  const toggle = (key: "jenis" | "status" | "tematik", value: string) => {
+  const toggle = (key: "jenis", value: string) => {
     setFilters((prev) => ({
       ...prev,
       [key]: prev[key].includes(value)
@@ -54,8 +54,6 @@ export default function FilterSidebarPuu({
   const reset = () => {
     const empty: DokumenFilters = {
       jenis: [],
-      status: [],
-      tematik: [],
       nomor: "",
       judul: "",
       tahun: "",

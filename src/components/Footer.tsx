@@ -26,8 +26,8 @@ export default function Footer() {
                 height={67}
                 priority
               />
-              <p className="text-base font-bold text-[#097969] mt-4 leading-6">
-                BIRO HUKUM KEMENTERIAN PERTANIAN
+              <p className="text-base font-bold text-[#097969] mt-2 leading-6">
+                KEMENTERIAN PERTANIAN
               </p>
               <p className="text-base font-inter text-black opacity-60 mt-6 leading-6">
                 Gedung A lantai 5 <br />
@@ -36,7 +36,14 @@ export default function Footer() {
                 Jakarta 12550
               </p>
               <p className="text-base font-inter text-black opacity-60 mt-6 leading-6">
-                Telp: (+62 21) 7816485 <br /> Fax.: (+62 21) 7804036
+                Telp: (+62 21) 7816485 <br /> Fax: (+62 21) 7804036 <br />{" "}
+                Email:{" "}
+                <a
+                  href="mailto:birohukum@pertanian.go.id"
+                  className="underline hover:text-black transition"
+                >
+                  birohukum@pertanian.go.id
+                </a>
               </p>
             </div>
 

@@ -37,16 +37,6 @@ const DokumenList = forwardRef<HTMLDivElement, Props>(
         label: `Tipe : ${JENIS_LABEL[j] ?? j}`,
         value: j,
       })),
-      ...filters.tematik.map((t) => ({
-        key: "tematik" as const,
-        label: `Tematik : ${t}`,
-        value: t,
-      })),
-      ...filters.status.map((s) => ({
-        key: "status" as const,
-        label: `Status : ${s}`,
-        value: s,
-      })),
       ...(filters.nomor
         ? [
             {

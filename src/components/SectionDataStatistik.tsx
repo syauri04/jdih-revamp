@@ -7,11 +7,12 @@ import ChartSelect from "./ChartSelect";
 export type ChartType =
   | "status-puu"
   | "jumlah-dokumen"
-  | "jumlah-pengunjung";
+  | "jumlah-pengunjung"
+  | "jumlah-koleksi-puu"
+  | "jumlah-puu-jenis";
 
 export default function SectionDataStatistik() {
-  const [selectedChart, setSelectedChart] =
-    useState<ChartType>("status-puu");
+  const [selectedChart, setSelectedChart] = useState<ChartType>("status-puu");
 
   return (
     <section className="py-10 md:pt-0 md:pb-10">
@@ -23,10 +24,7 @@ export default function SectionDataStatistik() {
               Data Statistik
             </h2>
 
-            <ChartSelect
-              value={selectedChart}
-              onChange={setSelectedChart}
-            />
+            <ChartSelect value={selectedChart} onChange={setSelectedChart} />
           </div>
 
           {/* ===== SUB TITLE ===== */}

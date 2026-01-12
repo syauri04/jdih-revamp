@@ -11,7 +11,7 @@ export interface DokumenItem {
   judul: string;
   tematik: string;
   penerbit: string;
-  status: "Berlaku" | "Tidak Berlaku";
+  instansi: string;
   tahun: number;
   slug: string;
   kategori: string;
@@ -19,8 +19,6 @@ export interface DokumenItem {
 
 export interface DokumenFilters {
   jenis: string[];
-  status: string[];
-  tematik: string[];
   nomor: string;
   judul: string;
   tahun: string;
@@ -35,13 +33,9 @@ import FilterSidebarPuu from "@/components/dokumen-puu/FilterSidebarPuu";
 
 export default function DokumenClient() {
   const { kategori } = useParams<{ kategori: string }>();
-  const searchParams = useSearchParams();
-  const tematikParam = searchParams.get("tematik");
 
   const initialFilters: DokumenFilters = {
     jenis: [],
-    tematik: tematikParam ? [tematikParam] : [],
-    status: [],
     nomor: "",
     judul: "",
     tahun: "",
@@ -57,8 +51,6 @@ export default function DokumenClient() {
       .filter((item) => {
         return (
           (!filters.jenis.length || filters.jenis.includes(item.jenis)) &&
-          (!filters.tematik.length || filters.tematik.includes(item.tematik)) &&
-          (!filters.status.length || filters.status.includes(item.status)) &&
           (!filters.nomor ||
             item.nomor.toLowerCase().includes(filters.nomor.toLowerCase())) &&
           (!filters.judul ||

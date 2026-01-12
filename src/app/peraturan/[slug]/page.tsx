@@ -448,7 +448,7 @@ export default function PeraturanDetail() {
                 </div>
               </div>
 
-              <CardAudio audioSrc="/assets/contoh-audio.mp3" />
+              <CardAudio audioSrc="/assets/contoh-audio-permentan.mpeg" />
             </div>
 
             {/* ================= RIGHT (30%) ================= */}

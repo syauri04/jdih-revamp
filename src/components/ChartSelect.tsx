@@ -21,7 +21,7 @@ export default function ChartSelect({
       {/* ===== TRIGGER ===== */}
       <SelectTrigger
         className="
-          w-full md:w-[260px]
+          w-full md:w-[360px]
           bg-white
           rounded-[10px]
           shadow-[0px_4px_16px_rgba(0,0,0,0.05)]
@@ -43,24 +43,36 @@ export default function ChartSelect({
         "
       >
         <SelectItem
-          value="status-puu"
-          className="text-base leading-4 text-black opacity-[0.6]"
-        >
-          Status Keberlakuan PUU
-        </SelectItem>
-
-        <SelectItem
           value="jumlah-dokumen"
           className="text-base leading-4 text-black opacity-[0.6]"
         >
-          Jumlah Dokumen Hukum
+          Statistik Jumlah Seluruh Dokumen Hukum
         </SelectItem>
 
+        <SelectItem
+          value="jumlah-koleksi-puu"
+          className="text-base leading-4 text-black opacity-[0.6]"
+        >
+          statistik jumlah koleksi PUU
+        </SelectItem>
+        <SelectItem
+          value="status-puu"
+          className="text-base leading-4 text-black opacity-[0.6]"
+        >
+          Statistik Berdasarkan Status Keberlakuan PUU
+        </SelectItem>
+
+        <SelectItem
+          value="jumlah-puu-jenis"
+          className="text-base eading-4 text-black opacity-[0.6]"
+        >
+          Statistik Jumlah PUU Berdasarkan Jenis
+        </SelectItem>
         <SelectItem
           value="jumlah-pengunjung"
           className="text-base leading-4 text-black opacity-[0.6]"
         >
-          Jumlah Pengunjung
+          Statistik Jumlah Pengunjung Dokumen Hukum
         </SelectItem>
       </SelectContent>
     </Select>
